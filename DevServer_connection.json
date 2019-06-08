@@ -1,0 +1,107 @@
+{
+    "name": "hlfv1",
+    "x-type": "hlfv1",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Org1",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300",
+                    "eventHub": "300",
+                    "eventReg": "300"
+                },
+                "orderer": "300"
+            }
+        }
+    },
+    "channels": {
+        "mychannel": {
+            "orderers": [
+                "orderer.example.com"
+            ],
+            "peers": {
+                "peer0.org1.example.com": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                },
+                "peer1.org1.example.com": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                },
+                "peer2.org1.example.com": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Org1": {
+            "mspid": "Org1MSP",
+            "peers": [
+                "peer0.org1.example.com",
+                "peer1.org1.example.com",
+                "peer2.org1.example.com"
+            ],
+            "certificateAuthorities": [
+                "ca.example.com"
+            ]
+        }
+    },
+    "orderers": {
+        "orderer.example.com": {
+            "url": "grpc://192.168.43.28:7050",
+            "grpcOptions": {
+                "ssl-target-name-override": "orderer.example.com"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICNjCCAdygAwIBAgIRAKhjprYTUvTN5F0oR8y4/6cwCgYIKoZIzj0EAwIwbDEL\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG\ncmFuY2lzY28xFDASBgNVBAoTC2V4YW1wbGUuY29tMRowGAYDVQQDExF0bHNjYS5l\neGFtcGxlLmNvbTAeFw0xOTA1MDgwODM5MTdaFw0yOTA1MDUwODM5MTdaMGwxCzAJ\nBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4gRnJh\nbmNpc2NvMRQwEgYDVQQKEwtleGFtcGxlLmNvbTEaMBgGA1UEAxMRdGxzY2EuZXhh\nbXBsZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARVNem5aJpw4w66COKV\nQtyELBH3wai5k/gTev54RHog5jL/6q+YsNXAaxkLBX2bPyrFnXFzLUZ3r/6Eakgi\ntK5Fo18wXTAOBgNVHQ8BAf8EBAMCAaYwDwYDVR0lBAgwBgYEVR0lADAPBgNVHRMB\nAf8EBTADAQH/MCkGA1UdDgQiBCAC4Bu5i/DsqOCxSAnAyBwif6K9jQGjVBi9+IYA\nC2wW2TAKBggqhkjOPQQDAgNIADBFAiEAr1hYPMT0MPVnQlV39VRQLTbUd16OOvRp\nBpjlMI4fQUMCIAdLetIO2FA+FN9YGPgLlKmSFxmAyPVTNfKNAmDnBkKO\n-----END CERTIFICATE-----\n"
+            }
+        }
+    },
+    "peers": {
+        "peer0.org1.example.com": {
+            "url": "grpc://192.168.43.28:7051",
+            "eventUrl": "grpc://192.168.43.28:7053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.org1.example.com"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICSTCCAe+gAwIBAgIQXwSCmlUWmoN4yhcZqb31yjAKBggqhkjOPQQDAjB2MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEZMBcGA1UEChMQb3JnMS5leGFtcGxlLmNvbTEfMB0GA1UEAxMWdGxz\nY2Eub3JnMS5leGFtcGxlLmNvbTAeFw0xOTA1MDgwODM5MTdaFw0yOTA1MDUwODM5\nMTdaMHYxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQH\nEw1TYW4gRnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMR8wHQYD\nVQQDExZ0bHNjYS5vcmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D\nAQcDQgAEJSwZK3Y5tsOj4QhyoQwrepWOuH/6oMWQCIS34pEDzpiAxYIhjoc6x/u9\nvsKRtX4IQrhhwiXhOdioOq++7ZClg6NfMF0wDgYDVR0PAQH/BAQDAgGmMA8GA1Ud\nJQQIMAYGBFUdJQAwDwYDVR0TAQH/BAUwAwEB/zApBgNVHQ4EIgQgt5SIpkh5mVKC\ny7kassJ3g+eyMX36vCCCtu7oqe1LcWcwCgYIKoZIzj0EAwIDSAAwRQIhAL3pCwdB\n2BNpPI2Mdt69kh7WarJAF0yioYVRRAp//E3UAiBtiFb52x4s20tvwtwlKxnFbdNu\nUCUReVn7J/+kKxyncA==\n-----END CERTIFICATE-----\n"
+            }
+        },
+        "peer1.org1.example.com": {
+            "url": "grpc://192.168.43.101:8051",
+            "eventUrl": "grpc://192.168.43.101:8053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.org1.example.com"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICSTCCAe+gAwIBAgIQXwSCmlUWmoN4yhcZqb31yjAKBggqhkjOPQQDAjB2MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEZMBcGA1UEChMQb3JnMS5leGFtcGxlLmNvbTEfMB0GA1UEAxMWdGxz\nY2Eub3JnMS5leGFtcGxlLmNvbTAeFw0xOTA1MDgwODM5MTdaFw0yOTA1MDUwODM5\nMTdaMHYxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQH\nEw1TYW4gRnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMR8wHQYD\nVQQDExZ0bHNjYS5vcmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D\nAQcDQgAEJSwZK3Y5tsOj4QhyoQwrepWOuH/6oMWQCIS34pEDzpiAxYIhjoc6x/u9\nvsKRtX4IQrhhwiXhOdioOq++7ZClg6NfMF0wDgYDVR0PAQH/BAQDAgGmMA8GA1Ud\nJQQIMAYGBFUdJQAwDwYDVR0TAQH/BAUwAwEB/zApBgNVHQ4EIgQgt5SIpkh5mVKC\ny7kassJ3g+eyMX36vCCCtu7oqe1LcWcwCgYIKoZIzj0EAwIDSAAwRQIhAL3pCwdB\n2BNpPI2Mdt69kh7WarJAF0yioYVRRAp//E3UAiBtiFb52x4s20tvwtwlKxnFbdNu\nUCUReVn7J/+kKxyncA==\n-----END CERTIFICATE-----\n"
+            }
+        },
+        "peer1.org1.example.com": {
+            "url": "grpc://192.168.43.229:8051",
+            "eventUrl": "grpc://192.168.43.229:8053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer2.org1.example.com"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICSTCCAe+gAwIBAgIQXwSCmlUWmoN4yhcZqb31yjAKBggqhkjOPQQDAjB2MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEZMBcGA1UEChMQb3JnMS5leGFtcGxlLmNvbTEfMB0GA1UEAxMWdGxz\nY2Eub3JnMS5leGFtcGxlLmNvbTAeFw0xOTA1MDgwODM5MTdaFw0yOTA1MDUwODM5\nMTdaMHYxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQH\nEw1TYW4gRnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMR8wHQYD\nVQQDExZ0bHNjYS5vcmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D\nAQcDQgAEJSwZK3Y5tsOj4QhyoQwrepWOuH/6oMWQCIS34pEDzpiAxYIhjoc6x/u9\nvsKRtX4IQrhhwiXhOdioOq++7ZClg6NfMF0wDgYDVR0PAQH/BAQDAgGmMA8GA1Ud\nJQQIMAYGBFUdJQAwDwYDVR0TAQH/BAUwAwEB/zApBgNVHQ4EIgQgt5SIpkh5mVKC\ny7kassJ3g+eyMX36vCCCtu7oqe1LcWcwCgYIKoZIzj0EAwIDSAAwRQIhAL3pCwdB\n2BNpPI2Mdt69kh7WarJAF0yioYVRRAp//E3UAiBtiFb52x4s20tvwtwlKxnFbdNu\nUCUReVn7J/+kKxyncA==\n-----END CERTIFICATE-----\n"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.example.com": {
+            "url": "http://192.168.43.28:7054",
+            "caName": "ca.example.com",
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}
