@@ -1,3 +1,5 @@
+This is equivalent to internet of web 2.0. This project creates skeleton based on defined configurations based on topology on which any business solution can be deployed.
+
 ## Basic Network Config
 
 Note that this basic configuration uses pre-generated certificates and
