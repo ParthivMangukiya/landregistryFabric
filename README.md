@@ -1,7 +1,6 @@
-This is equivalent to internet of web 2.0. This project creates skeleton based on defined configurations based on topology on which any business solution can be deployed.
+Land Registry Fabric is the blockchain network created to run Land Registry project. This project creates skeleton based on defined configurations based on topology on which any business solution can be deployed.
 
 ## Basic Network Config
-
 Note that this basic configuration uses pre-generated certificates and
 key material, and also has predefined transactions to initialize a 
 channel named "mychannel".
